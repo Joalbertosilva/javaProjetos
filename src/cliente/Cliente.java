@@ -1,20 +1,19 @@
 package cliente;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import conta.Conta;
 import conta.Banco;
 
 public class Cliente {
+    // o uso do objeto Conta é essencial para eu poder manipular os dados que são string, double e int.
+    // Além de permitir usar funções saque, depositar e transferir
 
-    private Conta[] contas = new Conta[5];
-    private int contaIndex = 0;
+    List<Conta> contas = new ArrayList<>();
 
     public void Cadastrar(Scanner sc) {
 
-        if (contaIndex >= contas.length) {
-            System.out.println("Não é possível cadastrar mais contas. Limite atingido.");
-            return;
-        }
         int numeroAleatorio = (int) (1000 + Math.random() * 1001);
 
         System.out.println("Insira seu nome: ");
@@ -31,9 +30,7 @@ public class Cliente {
         long cpfUser = sc.nextLong();
         contaNova.setCpf(cpfUser);
 
-        contas[contaIndex] = contaNova;
-        contaIndex++;  // Incrementa o índice para a próxima posição livre no array
-
+        contas.add(contaNova);
         System.out.println("Usuário registrado com sucesso.");
     }
 
