@@ -15,7 +15,6 @@ public class Cliente {
             System.out.println("Não é possível cadastrar mais contas. Limite atingido.");
             return;
         }
-
         int numeroAleatorio = (int) (1000 + Math.random() * 1001);
 
         System.out.println("Insira seu nome: ");
